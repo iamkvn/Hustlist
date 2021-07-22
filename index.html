@@ -3,16 +3,87 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
     <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
-    <title>Hustlist</title>
+    <title>ToDo</title>
   </head>
   <body>
-
+    <div class="todo-container">
+      <header class="header">
+        <h1 class="heading">ToDo</h1>
+        <img class="header__icon" src="images/icon-moon.svg" alt="" />
+      </header>
+      <div class="todo">
+        <form class="todo__form">
+          <i class="todo__icon u-mr fas fa-tasks"></i>
+          <input
+            class="todo__text"
+            type="text"
+            name="new-todo"
+            placeholder="Create a new todo..."
+          />
+          <input class="todo__submit" type="submit" value="+" />
+        </form>
+        <ul class="todo__list">
+          <li class="todo__item">
+            <input
+              class="todo__checkbox"
+              id="checkbox"
+              type="checkbox"
+              hidden
+            />
+            <label class="todo__checkmark" for="checkbox"></label>
+            <p class="todo__task">Complete online Javascript course</p>
+            <i class="todo__icon fas fa-times"></i>
+          </li>
+          <li class="todo__item">
+            <input
+              class="todo__checkbox"
+              id="checkbox"
+              type="checkbox"
+              hidden
+            />
+            <label class="todo__checkmark" for="checkbox"></label>
+            <p class="todo__task">Jog around the park 3x</p>
+            <i class="todo__icon fas fa-times"></i>
+          </li>
+          <li class="todo__item">
+            <input
+              class="todo__checkbox"
+              id="checkbox"
+              type="checkbox"
+              hidden
+            />
+            <label class="todo__checkmark" for="checkbox"></label>
+            <p class="todo__task">10 minutes meditation</p>
+            <i class="todo__icon fas fa-times"></i>
+          </li>
+          <li class="todo__item">
+            <span>3 items left</span>
+            <button class="todo__btn">Clear Completed</button>
+          </li>
+        </ul>
+        <div class="filter">
+          <button class="filter__btn">All</button>
+          <button class="filter__btn">Active</button>
+          <button class="filter__btn">Completed</button>
+        </div>
+      </div>
+      <p>Drag and drop to reorder list</p>
     </div>
   </body>
 </html>
