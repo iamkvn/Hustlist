@@ -17,13 +17,13 @@ $bp-xl: 90em; //1440px
   --color-very-dark-grayish-blue: hsl(235, 19%, 35%);
 
   // DARK THEME
-  --color-very-dark-blue: hsl(235, 21%, 11%);
-  --color-very-dark-desaturated-blue: hsl(235, 24%, 19%);
-  --color-light-grayish-blue: hsl(234, 39%, 85%);
-  --color-light-grayish-blue: hsl(236, 33%, 92%); //hover
-  --color-grayish-blue: hsl(234, 11%, 52%);
-  --color-dark-grayish-blue: hsl(233, 14%, 35%);
-  --color-very-darker-grayish-blue: hsl(237, 14%, 26%);
+  // --color-very-dark-blue: hsl(235, 21%, 11%);
+  // --color-very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  // --color-light-grayish-blue: hsl(234, 39%, 85%);
+  // --color-light-grayish-blue: hsl(236, 33%, 92%); //hover
+  // --color-grayish-blue: hsl(234, 11%, 52%);
+  // --color-dark-grayish-blue: hsl(233, 14%, 35%);
+  // --color-very-dark-grayish-blue: hsl(237, 14%, 26%);
 }
 
 // resets
@@ -58,6 +58,8 @@ a {
 .todo-container {
   position: relative;
   margin-bottom: 50rem;
+  display: flex;
+  justify-content: center;
 }
 
 .header {
@@ -74,6 +76,18 @@ a {
   }
 }
 
+.button {
+  border: none;
+  color: var(--color-dark-grayish-blue);
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-very-dark-grayish-blue);
+  }
+}
+
 .heading {
   color: #fff;
   text-transform: uppercase;
@@ -83,7 +97,8 @@ a {
 }
 
 .todo {
-  margin: 0 2.4rem;
+  // margin: 0 2.4rem;
+  // width: 32.7rem;
   width: 32.7rem;
   position: absolute;
   top: 10.8rem;
@@ -115,12 +130,18 @@ a {
     font-family: 'Josefin Sans', sans-serif;
 
     &::placeholder {
-      color: var(--color-very-dark-grayish-blue);
+      color: var(--color-dark-grayish-blue);
     }
   }
 
   &__submit {
     display: none;
+  }
+
+  &__list {
+    .todo__icon {
+      cursor: pointer;
+    }
   }
 
   &__item {
@@ -136,21 +157,40 @@ a {
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
     }
+    &:not(:first-child) {
+      box-shadow: 1px 5px 20px rgb(228, 228, 228);
+    }
     &:not(:last-child) {
       border-bottom: 1px solid var(--color-very-light-grayish-blue);
     }
+
+    &:last-child {
+      color: var(--color-dark-grayish-blue);
+      display: flex;
+      justify-content: space-between;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      font-size: 1.1rem;
+    }
   }
 
-  #checkbox:checked ~ .todo__checkmark {
-    background: var(--color-gradient);
+  &__btn {
+    font-size: 1.1rem;
+  }
 
-    &::after {
-      opacity: 1;
-      transform: translate(-50%, -50%) rotateZ(40deg) scale(1);
+  &__checkbox {
+    &:checked ~ .todo__checkmark {
+      background: var(--color-gradient);
+
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotateZ(40deg) scale(1);
+      }
     }
   }
 
   &__checkmark {
+    cursor: pointer;
     display: block;
     position: absolute;
     width: 20px;
@@ -168,7 +208,7 @@ a {
       border-bottom: 2px solid #fff;
       top: 45%;
       left: 50%;
-      transform: translate(-50%, -50%) rotateZ(40deg) scale(10);
+      transform: translate(-50%, -50%) rotateZ(40deg) scale(3);
       opacity: 0;
       transition: all 0.4s;
     }
@@ -181,8 +221,51 @@ a {
     color: var(--color-very-dark-grayish-blue);
     font-size: 1.2rem;
   }
+
+  .filter {
+    background-color: #fff;
+    border-radius: 5px;
+    height: 4.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    box-shadow: 1px 5px 20px rgb(228, 228, 228);
+
+    &__btn {
+      font-size: 1.4rem;
+      font-weight: 700;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
 }
 
 .u-mr {
   margin-right: 1.5rem;
+}
+
+.paragraph {
+  color: var(--color-dark-grayish-blue);
+  position: absolute;
+  top: 48rem;
+  font-size: 1.3rem;
+  animation: fadeIn ease-in 8s;
+  animation-delay: 5s;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
