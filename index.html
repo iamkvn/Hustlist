@@ -24,10 +24,14 @@
   <body>
     <div class="todo-container">
       <header class="header">
-        <h1 class="heading">ToDo</h1>
-        <img class="header__icon" src="images/icon-moon.svg" alt="" />
+        <!-- <h1 class="heading">ToDo</h1>
+        <img class="todo__icon" src="images/icon-moon.svg" alt="" /> -->
       </header>
       <div class="todo">
+        <div class="todo__header">
+          <h1 class="heading">ToDo</h1>
+          <img class="todo__toggle" src="images/icon-moon.svg" alt="" />
+        </div>
         <form class="todo__form">
           <i class="todo__icon u-mr fas fa-tasks"></i>
           <input
@@ -74,10 +78,15 @@
           </li>
           <li class="todo__item">
             <span>3 items left</span>
+            <div class="filter filter--desktop">
+              <button class="filter__btn button">All</button>
+              <button class="filter__btn button">Active</button>
+              <button class="filter__btn button">Completed</button>
+            </div>
             <button class="todo__btn button">Clear Completed</button>
           </li>
         </ul>
-        <div class="filter">
+        <div class="filter filter--mobile">
           <button class="filter__btn button">All</button>
           <button class="filter__btn button">Active</button>
           <button class="filter__btn button">Completed</button>
