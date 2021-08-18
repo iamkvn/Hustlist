@@ -19,6 +19,7 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="script.js" defer></script>
     <title>ToDo</title>
   </head>
   <body>
@@ -30,53 +31,59 @@
       <div class="todo">
         <div class="todo__header">
           <h1 class="heading">ToDo</h1>
-          <img class="todo__toggle" src="images/icon-moon.svg" alt="" />
+          <!-- <img
+            class="todo__toggle js-todo__toggle"
+            src="images/icon-moon.svg"
+            alt=""
+          /> -->
         </div>
-        <form class="todo__form">
+        <form class="todo__form js-todo__form">
           <i class="todo__icon u-mr fas fa-tasks"></i>
           <input
-            class="todo__text"
+            class="todo__input js-todo__input"
             type="text"
             name="new-todo"
             placeholder="Create a new todo..."
           />
           <input class="todo__submit" type="submit" value="+" />
         </form>
-        <ul class="todo__list">
-          <li class="todo__item">
-            <input
-              class="todo__checkbox"
-              id="checkbox-1"
-              type="checkbox"
-              hidden
-            />
-            <label class="todo__checkmark" for="checkbox-1"></label>
-            <p class="todo__task">Complete online Javascript course</p>
-            <i class="todo__icon fas fa-times"></i>
-          </li>
-          <li class="todo__item">
-            <input
-              class="todo__checkbox"
-              id="checkbox-2"
-              type="checkbox"
-              hidden
-            />
-            <label class="todo__checkmark" for="checkbox-2"></label>
-            <p class="todo__task">Jog around the park 3x</p>
-            <i class="todo__icon fas fa-times"></i>
-          </li>
-          <li class="todo__item">
-            <input
-              class="todo__checkbox"
-              id="checkbox-3"
-              type="checkbox"
-              hidden
-            />
-            <label class="todo__checkmark" for="checkbox-3"></label>
-            <p class="todo__task">10 minutes meditation</p>
-            <i class="todo__icon fas fa-times"></i>
-          </li>
-          <li class="todo__item">
+        <div class="todo__list-container">
+          <ul class="todo__list js-todo__list">
+            <!-- <li class="todo__item">
+              <input
+                class="todo__checkbox"
+                id="checkbox-1"
+                type="checkbox"
+                hidden
+              />
+              <label class="todo__checkmark" for="checkbox-1"></label>
+              <p class="todo__task">Complete online Javascript course</p>
+              <i class="todo__icon fas fa-times"></i>
+            </li>
+            <li class="todo__item">
+              <input
+                class="todo__checkbox"
+                id="checkbox-2"
+                type="checkbox"
+                hidden
+              />
+              <label class="todo__checkmark" for="checkbox-2"></label>
+              <p class="todo__task">Jog around the park 3x</p>
+              <i class="todo__icon fas fa-times"></i>
+            </li>
+            <li class="todo__item">
+              <input
+                class="todo__checkbox"
+                id="checkbox-3"
+                type="checkbox"
+                hidden
+              />
+              <label class="todo__checkmark" for="checkbox-3"></label>
+              <p class="todo__task">10 minutes meditation</p>
+              <i class="todo__icon fas fa-times"></i>
+            </li> -->
+          </ul>
+          <div class="todo__item todo__filter">
             <span>3 items left</span>
             <div class="filter filter--desktop">
               <button class="filter__btn button">All</button>
@@ -84,8 +91,9 @@
               <button class="filter__btn button">Completed</button>
             </div>
             <button class="todo__btn button">Clear Completed</button>
-          </li>
-        </ul>
+          </div>
+        </div>
+
         <div class="filter filter--mobile">
           <button class="filter__btn button">All</button>
           <button class="filter__btn button">Active</button>

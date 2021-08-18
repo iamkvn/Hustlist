@@ -91,40 +91,42 @@ a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: rgba(0, 0, 0, 0.2); }
-  .todo__text {
+  .todo__input {
     border: none;
     font-size: 1.2rem;
     width: 100%;
     font-family: 'Josefin Sans', sans-serif;
     outline: none;
     color: var(--color-very-dark-grayish-blue); }
-    .todo__text::placeholder {
+    .todo__input::placeholder {
       color: var(--color-dark-grayish-blue); }
   .todo__submit {
     display: none; }
   .todo__list .todo__icon {
     cursor: pointer; }
+  .todo__list-container {
+    box-shadow: 1px 15px 20px #e4e4e4;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
   .todo__item {
     height: 4.8rem;
     padding: 0 1.9rem;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--color-very-light-grayish-blue);
     background-color: #fff;
     font-size: 1.3rem; }
     .todo__item:nth-child(1) {
       border-top-left-radius: 5px;
       border-top-right-radius: 5px; }
-    .todo__item:not(:first-child) {
-      box-shadow: 1px 5px 20px #e4e4e4; }
-    .todo__item:not(:last-child) {
-      border-bottom: 1px solid var(--color-very-light-grayish-blue); }
-    .todo__item:last-child {
-      color: var(--color-dark-grayish-blue);
-      display: flex;
-      justify-content: space-between;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      font-size: 1.1rem; }
+  .todo__filter {
+    color: var(--color-dark-grayish-blue);
+    display: flex;
+    justify-content: space-between;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 1.1rem;
+    border: none; }
   .todo__btn {
     font-size: 1.1rem; }
   .todo__checkbox:checked ~ .todo__checkmark {
@@ -158,7 +160,8 @@ a {
     margin-right: auto;
     width: 100%;
     color: var(--color-very-dark-grayish-blue);
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    transition: all 0.5s ease; }
   .todo .filter {
     background-color: #fff;
     border-radius: 5px;
@@ -185,9 +188,6 @@ a {
       .todo .filter__btn:not(:last-child) {
         margin-right: 2rem; }
 
-.u-mr {
-  margin-right: 1.5rem; }
-
 .paragraph {
   color: var(--color-dark-grayish-blue);
   position: absolute;
@@ -200,6 +200,13 @@ a {
   @media only screen and (min-width: 48em) {
     .paragraph {
       top: 43rem; } }
+
+.u-mr {
+  margin-right: 1.5rem; }
+
+.u-complete {
+  text-decoration: line-through;
+  opacity: 0.3; }
 
 @keyframes fadeIn {
   0% {

@@ -141,11 +141,10 @@ a {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
     color: rgba(0, 0, 0, 0.2);
   }
 
-  &__text {
+  &__input {
     border: none;
     font-size: 1.2rem;
     width: 100%;
@@ -168,12 +167,18 @@ a {
     }
   }
 
+  &__list-container {
+    box-shadow: 1px 15px 20px rgb(228, 228, 228);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
   &__item {
     height: 4.8rem;
     padding: 0 1.9rem;
     display: flex;
     align-items: center;
-
+    border-bottom: 1px solid var(--color-very-light-grayish-blue);
     background-color: #fff;
     font-size: 1.3rem;
 
@@ -181,21 +186,16 @@ a {
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
     }
-    &:not(:first-child) {
-      box-shadow: 1px 5px 20px rgb(228, 228, 228);
-    }
-    &:not(:last-child) {
-      border-bottom: 1px solid var(--color-very-light-grayish-blue);
-    }
+  }
 
-    &:last-child {
-      color: var(--color-dark-grayish-blue);
-      display: flex;
-      justify-content: space-between;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      font-size: 1.1rem;
-    }
+  &__filter {
+    color: var(--color-dark-grayish-blue);
+    display: flex;
+    justify-content: space-between;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 1.1rem;
+    border: none;
   }
 
   &__btn {
@@ -244,6 +244,7 @@ a {
     width: 100%;
     color: var(--color-very-dark-grayish-blue);
     font-size: 1.2rem;
+    transition: all 0.5s ease;
   }
 
   .filter {
@@ -284,10 +285,6 @@ a {
   }
 }
 
-.u-mr {
-  margin-right: 1.5rem;
-}
-
 .paragraph {
   color: var(--color-dark-grayish-blue);
   position: absolute;
@@ -301,6 +298,15 @@ a {
   @media only screen and (min-width: $bp-md) {
     top: 43rem;
   }
+}
+
+.u-mr {
+  margin-right: 1.5rem;
+}
+
+.u-complete {
+  text-decoration: line-through;
+  opacity: 0.3;
 }
 
 @keyframes fadeIn {
