@@ -15,6 +15,7 @@ const todoItemsLeft = document.querySelector('.js-todo__items-left');
 const todoFilter = document.querySelector('.todo__filter');
 const filters = document.querySelectorAll('.filter');
 const message = document.querySelector('.message');
+const buttons = document.querySelectorAll('.button');
 
 //========================= FUNCTIONS ============================//
 
@@ -114,6 +115,46 @@ const createTask = () => {
   }
 };
 
+const completeBtn = () => {
+  let items = todoList.children;
+  for (item of items) {
+    item.firstElementChild.checked
+      ? item.classList.remove('u-display')
+      : item.classList.add('u-display');
+  }
+};
+
+const activeBtn = () => {
+  let items = todoList.children;
+  for (item of items) {
+    !item.firstElementChild.checked
+      ? item.classList.remove('u-display')
+      : item.classList.add('u-display');
+  }
+};
+
+const allBtn = () => {
+  let items = todoList.children;
+  for (item of items) {
+    item.classList.remove('u-display');
+  }
+};
+
+const todoButtons = (e) => {
+  if (e.target.textContent === 'Completed') {
+    completeBtn();
+  }
+  if (e.target.textContent === 'Active') {
+    activeBtn();
+  }
+  if (e.target.textContent === 'All') {
+    allBtn();
+  }
+};
+
 //========================= EVENT LISTENERS ============================//
 
 todoForm.addEventListener('submit', validateInput);
+buttons.forEach((button) => {
+  button.addEventListener('click', todoButtons);
+});
