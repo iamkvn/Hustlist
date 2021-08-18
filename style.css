@@ -188,18 +188,15 @@ a {
       .todo .filter__btn:not(:last-child) {
         margin-right: 2rem; }
 
-.paragraph {
+.message {
   color: var(--color-dark-grayish-blue);
   position: absolute;
-  top: 48rem;
+  top: 25rem;
   font-size: 1.3rem;
   animation: fadeIn ease-in 8s;
-  animation-delay: 5s;
   animation-iteration-count: infinite;
-  opacity: 0; }
-  @media only screen and (min-width: 48em) {
-    .paragraph {
-      top: 43rem; } }
+  opacity: 0;
+  margin-bottom: 5rem; }
 
 .u-mr {
   margin-right: 1.5rem; }
@@ -207,6 +204,9 @@ a {
 .u-complete {
   text-decoration: line-through;
   opacity: 0.3; }
+
+.u-display {
+  display: none !important; }
 
 @keyframes fadeIn {
   0% {
