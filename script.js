@@ -13,7 +13,7 @@ const todoInput = document.querySelector('.js-todo__input');
 const todoList = document.querySelector('.js-todo__list');
 const todoItemsLeft = document.querySelector('.js-todo__items-left');
 const todoFilter = document.querySelector('.todo__filter');
-const filter = document.querySelector('.filter');
+const filters = document.querySelectorAll('.filter');
 const message = document.querySelector('.message');
 
 //========================= FUNCTIONS ============================//
@@ -32,7 +32,11 @@ const updateItemsLeft = () => {
 
 const display = () => {
   todoFilter.classList.remove('u-display');
-  filter.classList.remove('u-display');
+
+  filters.forEach((filter) => {
+    filter.classList.remove('u-display');
+  });
+  //   filters.classList.remove('u-display');
   message.classList.add('u-display');
 };
 
@@ -53,6 +57,9 @@ const deleteTask = (event) => {
 
   if (itemsLeft === 0) {
     message.classList.remove('u-display');
+    filters.forEach((filter) => {
+      filter.classList.add('u-display');
+    });
   }
 };
 
@@ -62,8 +69,20 @@ const task = (e) => {
   deleteTask(event);
 };
 
-const createTask = (e) => {
+const validateInput = (e) => {
   e.preventDefault();
+
+  if (!todoInput.value) {
+    alert('Cannot leave field empty. Enter a todo');
+  }
+  if (todoInput.value) {
+    createTask();
+  }
+};
+
+const createTask = () => {
+  //   e.preventDefault();
+
   itemsLeft++;
 
   checkboxNum++;
@@ -97,4 +116,4 @@ const createTask = (e) => {
 
 //========================= EVENT LISTENERS ============================//
 
-todoForm.addEventListener('submit', createTask);
+todoForm.addEventListener('submit', validateInput);
