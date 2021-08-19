@@ -95,38 +95,6 @@ const validateInput = (e) => {
   }
 };
 
-const createTask = () => {
-  //   e.preventDefault();
-  itemsLeft++;
-  checkboxNum++;
-
-  const html = `
-    <li class="todo__item js-todo__item">
-        <input
-            class="todo__checkbox js-todo__checkbox"
-            id="checkbox-${checkboxNum}"
-            type="checkbox"
-            hidden
-        />
-        <label class="todo__checkmark" for="checkbox-${checkboxNum}"></label>
-        <p class="todo__task js-todo__task">${todoInput.value}</p>
-        <i class="todo__icon fas fa-times"></i>
-    </li>
-  `;
-  todoList.insertAdjacentHTML('beforeend', html);
-  todoForm.reset();
-
-  const todoItem = document.querySelectorAll('.js-todo__item');
-  todoItem.forEach((item) => {
-    item.addEventListener('click', task);
-  });
-  updateItemsLeft();
-
-  if (itemsLeft === 1) {
-    display();
-  }
-};
-
 const completeBtn = () => {
   completed = true;
   active = false;
@@ -188,6 +156,38 @@ const todoButtons = (e) => {
   }
   if (e.target.textContent === 'Clear Completed') {
     clearCompleteBtn();
+  }
+};
+
+const createTask = () => {
+  //   e.preventDefault();
+  itemsLeft++;
+  checkboxNum++;
+
+  const html = `
+      <li class="todo__item js-todo__item">
+          <input
+              class="todo__checkbox js-todo__checkbox"
+              id="checkbox-${checkboxNum}"
+              type="checkbox"
+              hidden
+          />
+          <label class="todo__checkmark" for="checkbox-${checkboxNum}"></label>
+          <p class="todo__task js-todo__task">${todoInput.value}</p>
+          <i class="todo__icon fas fa-times"></i>
+      </li>
+    `;
+  todoList.insertAdjacentHTML('beforeend', html);
+  todoForm.reset();
+
+  const todoItem = document.querySelectorAll('.js-todo__item');
+  todoItem.forEach((item) => {
+    item.addEventListener('click', task);
+  });
+  updateItemsLeft();
+
+  if (itemsLeft === 1) {
+    display();
   }
 };
 
