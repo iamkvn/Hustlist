@@ -2,10 +2,12 @@ const log = console.log;
 
 let checkboxNum = 0;
 let itemsLeft = 0;
+let active = false;
+let completed = false;
 
 //NOTES
-//if input is empty handle it
-//DRAG AND DROP MESSAGE DOESNT MOVE DOWN WHEN TODO LIST IS GETTING FULL
+//fix the items left depending on the button selected
+//fix the corner of the top item
 
 //========================= ELEMENTS ============================//
 const todoForm = document.querySelector('.js-todo__form');
@@ -45,6 +47,17 @@ const completeTask = (event) => {
   if (event.type === 'checkbox') {
     const task = event.nextElementSibling.nextElementSibling;
     task.classList.toggle('u-complete');
+
+    if (!event.checked && completed) {
+      setTimeout(() => {
+        event.parentElement.classList.add('u-display');
+      }, 600);
+    }
+    if (event.checked && active) {
+      setTimeout(() => {
+        event.parentElement.classList.add('u-display');
+      }, 600);
+    }
   }
 };
 
@@ -116,6 +129,9 @@ const createTask = () => {
 };
 
 const completeBtn = () => {
+  completed = true;
+  active = false;
+
   let items = todoList.children;
   for (item of items) {
     item.firstElementChild.checked
@@ -125,6 +141,9 @@ const completeBtn = () => {
 };
 
 const activeBtn = () => {
+  active = true;
+  completed = false;
+
   let items = todoList.children;
   for (item of items) {
     !item.firstElementChild.checked
@@ -134,6 +153,8 @@ const activeBtn = () => {
 };
 
 const allBtn = () => {
+  active = false;
+  completed = false;
   let items = todoList.children;
   for (item of items) {
     item.classList.remove('u-display');
