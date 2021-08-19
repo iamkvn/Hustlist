@@ -4,6 +4,7 @@ let checkboxNum = 0;
 let itemsLeft = 0;
 let active = false;
 let completed = false;
+let itemsChecked = [];
 
 //NOTES
 //fix the items left depending on the button selected
@@ -96,9 +97,7 @@ const validateInput = (e) => {
 
 const createTask = () => {
   //   e.preventDefault();
-
   itemsLeft++;
-
   checkboxNum++;
 
   const html = `
@@ -161,6 +160,22 @@ const allBtn = () => {
   }
 };
 
+const clearCompleteBtn = () => {
+  let items = todoList.children;
+
+  for (item of items) {
+    if (item.firstElementChild.checked) {
+      itemsChecked.push(item);
+
+      itemsLeft--;
+      updateItemsLeft();
+    }
+  }
+  itemsChecked.forEach((item) => {
+    item.remove();
+  });
+};
+
 const todoButtons = (e) => {
   if (e.target.textContent === 'Completed') {
     completeBtn();
@@ -170,6 +185,9 @@ const todoButtons = (e) => {
   }
   if (e.target.textContent === 'All') {
     allBtn();
+  }
+  if (e.target.textContent === 'Clear Completed') {
+    clearCompleteBtn();
   }
 };
 
